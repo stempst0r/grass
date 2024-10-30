@@ -25,7 +25,7 @@ RUN set-cont-env APP_VERSION "4.27.3"
 
 COPY startapp.sh /startapp.sh
 COPY main-window-selection.jwmrc /etc/jwm/main-window-selection.jwmrc
-COPY --from=builder /grass/ /tmp/
+COPY --from=builder /grass/ /grass/
 
 RUN apt-get update && \ 
     apt-get install -y ca-certificates locales libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-0 && \
@@ -36,7 +36,7 @@ RUN sed-patch 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 ENV LANG=en_US.UTF-8
 
-RUN dpkg -i /tmp/grass/lib/libayatana-indicator3-7.deb && \
-    dpkg -i /tmp/grass/lib/libayatana-appindicator3-1.deb && \
-    dpkg -i /tmp/grass/grass.deb && \
-    rm -rf /tmp/grass
+RUN dpkg -i /grass/lib/libayatana-indicator3-7.deb && \
+    dpkg -i /grass/lib/libayatana-appindicator3-1.deb && \
+    dpkg -i /grass/grass.deb && \
+    rm -rf /grass
