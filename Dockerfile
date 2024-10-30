@@ -1,7 +1,7 @@
 FROM jlesage/baseimage-gui:debian-12-v4 as builder
 
 RUN apt-get update && \ 
-    apt-get install -y curl
+    apt-get install -y ca-certificates curl
 
 RUN mkdir -p /grass && \
     mkdir -p /grass/lib
