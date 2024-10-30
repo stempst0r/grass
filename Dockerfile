@@ -13,7 +13,7 @@ ARG APP_URL=http://ftp.us.debian.org/debian/pool/main/liba/libayatana-appindicat
 RUN curl -sS -L ${APP_URL} -o /grass/lib/libayatana-appindicator3-1.deb
 
 ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04/grass_4.27.3_amd64.deb
-RUN curl -sS -L ${APP_URL} -o /grass/grass.deb &&
+RUN curl -sS -L ${APP_URL} -o /grass/grass.deb
 
 
 FROM jlesage/baseimage-gui:debian-12-v4
