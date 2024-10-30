@@ -17,12 +17,12 @@ RUN apt-get update && \
 RUN sed-patch 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
     locale-gen
 ENV LANG=en_US.UTF-8
-
-#ARG APP_URL=https://mirrors.tuna.tsinghua.edu.cn/debian/pool/main/liba/libayatana-appindicator/libayatana-appindicator3-1_0.5.3-4_amd64.deb
-#RUN \
-#    curl -sS -L ${APP_URL} -o /tmp/libayatana-appindicator3-1.deb && \
-#    dpkg -i /tmp/libayatana-appindicator3-1.deb && \
-#    rm -f /tmp/libayatana-appindicator3-1.deb
+    
+ARG APP_URL=http://http.us.debian.org/debian/pool/main/liba/libayatana-appindicator/libayatana-appindicator3-1_0.5.3-4_amd64.deb
+RUN \
+    curl -sS -L ${APP_URL} -o /tmp/libayatana-appindicator3-1.deb && \
+    dpkg -i /tmp/libayatana-appindicator3-1.deb && \
+    rm -f /tmp/libayatana-appindicator3-1.deb
 
 ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04/grass_4.27.3_amd64.deb
 RUN \
