@@ -16,7 +16,7 @@ ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04
 RUN curl -sS -L ${APP_URL} -o /grass/grass.deb &&
 
 
-FROM jlesage/baseimage-gui:debian-12-v4 as prod
+FROM jlesage/baseimage-gui:debian-12-v4
 
 LABEL org.opencontainers.image.authors="217heidai@gmail.com"
 
