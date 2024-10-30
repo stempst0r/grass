@@ -25,7 +25,7 @@ RUN set-cont-env APP_VERSION "4.27.3"
 
 COPY startapp.sh /startapp.sh
 COPY main-window-selection.jwmrc /etc/jwm/main-window-selection.jwmrc
-COPY --from=builder /grass /
+COPY --from=builder /grass/ /
 
 RUN apt-get update && \ 
     apt-get install -y ca-certificates locales libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-0 && \
