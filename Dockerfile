@@ -9,7 +9,7 @@ COPY startapp.sh /startapp.sh
 COPY main-window-selection.jwmrc /etc/jwm/main-window-selection.jwmrc
 
 RUN apt-get update && \ 
-    apt-get install -y curl ca-certificates locales libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-0 && \
+    apt-get install -y curl ca-certificates locales libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-dev && \
     apt-get auto-remove -y && \
     rm -rf /var/lib/apt/lists/*
 #gdebi
