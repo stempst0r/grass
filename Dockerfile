@@ -33,7 +33,7 @@ RUN set-cont-env APP_NAME "Grass"
 RUN set-cont-env APP_VERSION "4.27.3"
 
 RUN apt-get update && \ 
-    apt-get install -y ca-certificates libayatana-appindicator3-1 libegl-dev && \
+    apt-get install -y ca-certificates libayatana-appindicator3-1 libwebkit2gtk-4.1-0 libegl-dev && \
     apt-get auto-remove -y && \
     rm -rf /var/lib/apt/lists/*
 
