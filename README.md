@@ -26,7 +26,7 @@ docker run -d \
 ```
 
 ## Setting
-1. Open the webpage http://yourip:5800
+1. Open the webpage https://yourip:5800
 2. Login grass with your grass account
 3. Earn more rewards
 
