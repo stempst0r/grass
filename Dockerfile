@@ -1,4 +1,5 @@
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3 AS builder
+#FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3 AS builder
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.0 AS builder
 
 RUN apt-get update && \ 
     apt-get install -y ca-certificates curl
@@ -14,7 +15,8 @@ ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04
 RUN curl -sS -L ${APP_URL} -o /grass/grass.deb
 
 
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3
+#FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.0
 LABEL org.opencontainers.image.authors="217heidai@gmail.com"
 
 #ENV LANG=en_US.UTF-8

@@ -2,7 +2,7 @@
 Docker image for [Grass Desktop Node](https://app.getgrass.io/register/?referralCode=mym0QmjqhIN89gy). 
 The Grass Desktop Node is a lightweight standalone application that is designed to run on any desktop. Users of the desktop node are awarded priority network traffic and are able to earn additional rewards for occasional access to the user's bandwidth.
 
-# Setup
+## Setup
 ```bash
 docker run -d \
    --restart unless-stopped \
@@ -29,7 +29,12 @@ docker run -d \
    217heidai/grass:latest
 ```
 
-# Setting
-1. Open the webpage http://yourip:5800, user:WEB_AUTHENTICATION_USERNAME, password:WEB_AUTHENTICATION_PASSWORD
-2. login grass with your grass account
-3. earn more rewards
+## Setting
+1. Open the webpage https://yourip:5800, user:WEB_AUTHENTICATION_USERNAME, password:WEB_AUTHENTICATION_PASSWORD
+2. Login grass with your grass account
+3. Earn more rewards
+
+## ChangeLog
+| Date      | Content                                                              |
+|-----------|----------------------------------------------------------------------|
+| 2024.10.31 | grass 4.27.3 |
