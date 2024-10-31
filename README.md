@@ -11,7 +11,8 @@ docker run -d \
    -v $HOME/appdata/grass:/config \
    -e USER_ID=$(id -u) \
    -e GROUP_ID=$(id -g) \
-   -e TZ=Asia/Shanghai \
+   -e WEB_AUTHENTICATION_USERNAME=grass \
+   -e WEB_AUTHENTICATION_PASSWORD=grass \
    217heidai/grass:latest
 ```
 or
@@ -22,12 +23,13 @@ docker run -d \
    -v $HOME/appdata/grass:/config \
    -e USER_ID=$(id -u) \
    -e GROUP_ID=$(id -g) \
-   -e TZ=Asia/Shanghai \
+   -e WEB_AUTHENTICATION_USERNAME=grass \
+   -e WEB_AUTHENTICATION_PASSWORD=grass \
    -p 5800:5800 \
    217heidai/grass:latest
 ```
 
 # Setting
-1. Open the webpage http://yourip:5800
+1. Open the webpage http://yourip:5800, user:WEB_AUTHENTICATION_USERNAME, password:WEB_AUTHENTICATION_PASSWORD
 2. login grass with your account
 3. earn more rewards
