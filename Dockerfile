@@ -25,17 +25,16 @@ RUN curl -sS -L ${APP_URL} -o /grass/grass.deb
 FROM jlesage/baseimage-gui:debian-12-v4
 LABEL org.opencontainers.image.authors="217heidai@gmail.com"
 
-#ENV LANG=en_US.UTF-8
-#ENV ENABLE_CJK_FONT=1
-ENV KEEP_APP_RUNNING=1
 
 RUN set-cont-env APP_NAME "Grass"
 RUN set-cont-env APP_VERSION "4.27.3"
 
 RUN apt-get update && \ 
-    apt-get install -y ca-certificates libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-0 && \
+    apt-get install -y ca-certificates locales libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-0 && \
     apt-get auto-remove -y && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* \
+    sed-patch 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    locale-gen
 
 COPY --from=builder /grass/ /grass/
 
@@ -46,3 +45,7 @@ RUN mkdir -p /etc/jwm && \
     dpkg -i /grass/lib/libayatana-appindicator3-1.deb && \
     dpkg -i /grass/grass.deb && \
     rm -rf /grass
+
+ENV LANG=en_US.UTF-8
+#ENV ENABLE_CJK_FONT=1
+ENV KEEP_APP_RUNNING=1
