@@ -1,5 +1,4 @@
-#FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3 AS builder
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.0 AS builder
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3 AS builder
 
 RUN apt-get update && \ 
     apt-get install -y ca-certificates curl
@@ -15,13 +14,12 @@ ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04
 RUN curl -sS -L ${APP_URL} -o /grass/grass.deb
 
 
-#FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3
-FROM jlesage/baseimage-gui:ubuntu-22.04-v4.6.0
+FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3
 LABEL org.opencontainers.image.authors="217heidai@gmail.com"
 
-#ENV LANG=en_US.UTF-8
-#ENV ENABLE_CJK_FONT=1
 ENV KEEP_APP_RUNNING=1
+# jlesage/baseimage-gui:ubuntu-22.04-v4.6 报错：Could not create surfaceless EGL display: EGL_NOT_INITIALIZED，待jlesage/baseimage-gui修复
+# jlesage/baseimage-gui:ubuntu-22.04-v4.5 不支持 web auth
 ENV SECURE_CONNECTION=1
 ENV WEB_AUTHENTICATION=1
 ENV WEB_AUTHENTICATION_USERNAME=grass
