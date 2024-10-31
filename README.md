@@ -31,5 +31,5 @@ docker run -d \
 
 # Setting
 1. Open the webpage http://yourip:5800, user:WEB_AUTHENTICATION_USERNAME, password:WEB_AUTHENTICATION_PASSWORD
-2. login grass with your account
+2. login grass with your grass account
 3. earn more rewards
