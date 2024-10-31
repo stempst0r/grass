@@ -33,7 +33,7 @@ RUN set-cont-env APP_NAME "Grass"
 RUN set-cont-env APP_VERSION "4.27.3"
 
 RUN apt-get update && \ 
-    apt-get install -y ca-certificates libpango-1.0 libpangocairo-1.0 libgtk-3-0 libdbusmenu-gtk3-4 libdbusmenu-glib4 libayatana-ido3-0.4-0 libwebkit2gtk-4.1-0 libegl-dev && \
+    apt-get install -y ca-certificates libayatana-appindicator3-1 libegl-dev && \
     apt-get auto-remove -y && \
     rm -rf /var/lib/apt/lists/*
 
@@ -42,7 +42,5 @@ COPY --from=builder /grass/ /grass/
 RUN mkdir -p /etc/jwm && \
     mv /grass/etc/main-window-selection.jwmrc /etc/jwm/main-window-selection.jwmrc && \
     mv /grass/startapp.sh /startapp.sh && \
-    dpkg -i /grass/lib/libayatana-indicator3-7.deb && \
-    dpkg -i /grass/lib/libayatana-appindicator3-1.deb && \
     dpkg -i /grass/grass.deb && \
     rm -rf /grass
