@@ -39,8 +39,9 @@ RUN apt-get update && \
 
 COPY --from=builder /grass/ /grass/
 
-RUN mv /grass/startapp.sh /startapp.sh && \
+RUN mkdir -p /etc/jwm && \
     mv /grass/etc/main-window-selection.jwmrc /etc/jwm/main-window-selection.jwmrc && \
+    mv /grass/startapp.sh /startapp.sh && \
     dpkg -i /grass/lib/libayatana-indicator3-7.deb && \
     dpkg -i /grass/lib/libayatana-appindicator3-1.deb && \
     dpkg -i /grass/grass.deb && \
