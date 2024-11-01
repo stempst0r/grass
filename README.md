@@ -11,6 +11,7 @@ docker run -d \
    -v $HOME/appdata/grass:/config \
    -e USER_ID=$(id -u) \
    -e GROUP_ID=$(id -g) \
+   -e WEB_LISTENING_PORT=5800
    217heidai/grass:latest
 ```
 or
