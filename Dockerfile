@@ -10,7 +10,7 @@ RUN chmod +x /grass/startapp.sh
 
 COPY main-window-selection.jwmrc /grass/main-window-selection.jwmrc
 
-ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04/grass_4.29.0_amd64.deb
+ARG APP_URL=https://files.getgrass.io/file/grass-extension-upgrades/ubuntu-22.04/grass_4.30.0_amd64.deb
 RUN curl -sS -L ${APP_URL} -o /grass/grass.deb
 
 
@@ -26,7 +26,7 @@ ENV WEB_AUTHENTICATION_USERNAME=grass
 ENV WEB_AUTHENTICATION_PASSWORD=grass
 
 RUN set-cont-env APP_NAME "Grass"
-RUN set-cont-env APP_VERSION "4.29.0"
+RUN set-cont-env APP_VERSION "4.30.0"
 
 RUN apt-get update && \ 
     apt-get install -y ca-certificates libayatana-appindicator3-1 libwebkit2gtk-4.1-0 libegl-dev && \
