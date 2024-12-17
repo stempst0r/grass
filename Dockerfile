@@ -1,7 +1,7 @@
 FROM jlesage/baseimage-gui:ubuntu-22.04-v4.5.3 AS builder
 
 RUN apt-get update && \ 
-    apt-get install -y ca-certificates curl
+    apt-get install -y --no-install-recommends --no-install-suggests ca-certificates curl
 
 RUN mkdir -p /grass
 
@@ -25,12 +25,13 @@ ENV WEB_AUTHENTICATION=1
 ENV WEB_AUTHENTICATION_USERNAME=grass
 ENV WEB_AUTHENTICATION_PASSWORD=grass
 
-RUN set-cont-env APP_NAME "Grass"
-RUN set-cont-env APP_VERSION "4.30.0"
+RUN set-cont-env APP_NAME "Grass" && \
+    set-cont-env APP_VERSION "4.30.0"
 
 RUN apt-get update && \ 
-    apt-get install -y ca-certificates libayatana-appindicator3-1 libwebkit2gtk-4.1-0 libegl-dev && \
-    apt-get auto-remove -y && \
+    apt-get install -y --no-install-recommends --no-install-suggests ca-certificates libayatana-appindicator3-1 libwebkit2gtk-4.1-0 libegl-dev && \
+    apt-get autoremove -y && \
+    apt-get -y --purge autoremove && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /grass/ /grass/
