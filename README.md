@@ -1,30 +1,6 @@
 # grass-desktop-node
-Docker image for [Grass Desktop Node](https://app.getgrass.io/register/?referralCode=mym0QmjqhIN89gy). 
+Docker image for [Grass Desktop Node](https://app.grass.io/register?referralCode=SwIniMru9EpLBi8). 
 The Grass Desktop Node is a lightweight standalone application that is designed to run on any desktop. Users of the desktop node are awarded priority network traffic and are able to earn additional rewards for occasional access to the user's bandwidth.
-
-## Setup
-```bash
-docker run -d \
-   --restart unless-stopped \
-   --name grass \
-   --network host \
-   -v $HOME/appdata/grass:/config \
-   -e USER_ID=$(id -u) \
-   -e GROUP_ID=$(id -g) \
-   -e WEB_LISTENING_PORT=5800
-   217heidai/grass:latest
-```
-or
-```bash
-docker run -d \
-   --restart unless-stopped \
-   --name grass \
-   -v $HOME/appdata/grass:/config \
-   -e USER_ID=$(id -u) \
-   -e GROUP_ID=$(id -g) \
-   -p 5800:5800 \
-   217heidai/grass:latest
-```
 
 ## Setting
 1. Open the webpage https://yourip:5800
@@ -34,6 +10,7 @@ docker run -d \
 ## ChangeLog
 | Date      | Content                                                              |
 |-----------|----------------------------------------------------------------------|
+| 2025.10.32 | grass 5.7.1  |
 | 2025.07.16 | grass 5.5.4  |
 | 2025.05.07 | grass 5.3.1  |
 | 2025.03.21 | grass 5.2.2  |
